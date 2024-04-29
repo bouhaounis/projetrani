@@ -1,0 +1,87 @@
+
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+
+  body {
+          font-family:sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #1a3542;
+      }
+  .container {
+
+              max-width: 800px;
+              margin: 0 auto;
+             padding: 20px;
+            }
+
+
+  p {
+          display: block;
+          margin-bottom: 5px;
+          color: #1b1267;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size: larger;
+          font-weight: bold;
+          text-align:left;
+
+        }
+  
+  form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        text-indent: 50px;
+        line-height: 2;
+       }
+       h3 {
+        margin-left:60px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+
+       }
+   
+
+        button {
+            background-color:#2196F3;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            position: absolute; 
+            bottom: 360px; 
+            right: 1000px; 
+            font-size: 200;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button:hover {
+            background-color: #7dc4f1;
+        }
+
+        h1 {
+            background-color: #299be4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 35px;
+        }
+</style>
+<h1>Se connecter</h1>
+<form method="post">
+<i class="bi bi-person"></i>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+</svg>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Se connecter</button>
+</form>
+<h3>Pas encore membre?<a href="{% url 'signup' %}">Créer un compte</a></h3>
+{% endblock %}

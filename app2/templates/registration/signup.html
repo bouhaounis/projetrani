@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<style>
+
+  body {
+          font-family:sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #c8dee9;
+      }
+  .container {
+
+              max-width: 800px;
+              margin: 0 auto;
+             padding: 20px;
+            }
+
+
+  p {
+          display: block;
+          margin-bottom: 5px;
+          color: #1b1267;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size: larger;
+          font-weight: bold;
+          text-align:left;
+
+        }
+  
+  form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 1, 19, 0);
+        text-indent: 50px;
+        line-height: 2;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+       }
+       h2 {
+        text-align: center;
+        color:#0b0260;
+        font-size: 27px;
+       }
+   
+
+        button {
+            background-color:#2196F3;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            position: absolute; 
+            bottom: 280px; 
+            right: 400px; 
+            font-size: 200;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button:hover {
+            background-color: #7dc4f1;
+        }
+
+        h1 {
+            background-color: #299be4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 35px;
+        }
+</style>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h2 class="card-title">Veuillez saisir les informations nécessaires</h2>
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+              </div>
+              <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+              </div>
+              <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+              </div>
+              <div class="form-group">
+                {{ form.Nom.label_tag }}
+                {{ form.Nom }}
+                {{ form.Nom.errors }}
+              </div>
+              <div class="form-group">
+                {{ form.Prénom.label_tag }}
+                {{ form.Prénom }}
+                {{ form.Prénom.errors }}
+              </div>
+              <div class="form-group">
+                {{ form.Date_de_naissance.label_tag }}
+                {{ form.Date_de_naissance }}
+                {{ form.Date_de_naissance.errors }}
+              </div>
+              <div class="form-group">
+                {{ form.Num_tel.label_tag }}
+                {{ form.Num_tel }}
+                {{ form.Num_tel.errors }}
+              </div>
+              <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+              </div>
+              <button type="submit" class="btn btn-primary">Créer un compte</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
